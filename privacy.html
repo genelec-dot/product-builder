@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Builder 개인정보처리방침 - 사용자의 개인정보 수집, 이용, 보관에 관한 정책을 안내합니다.">
+    <title>개인정보처리방침 | Product Builder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            --text: #fff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --group-bg: rgba(255, 255, 255, 0.04);
+            --toggle-bg: rgba(255, 255, 255, 0.12);
+            --toggle-hover: rgba(255, 255, 255, 0.2);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] {
+            --bg: linear-gradient(135deg, #e8eaf6, #f5f5f5, #e3f2fd);
+            --text: #222;
+            --text-secondary: rgba(0, 0, 0, 0.6);
+            --group-bg: rgba(0, 0, 0, 0.03);
+            --toggle-bg: rgba(0, 0, 0, 0.08);
+            --toggle-hover: rgba(0, 0, 0, 0.15);
+            --border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text);
+            transition: background 0.4s, color 0.3s;
+        }
+
+        nav {
+            width: 100%;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 900px;
+        }
+
+        .nav-brand { font-weight: bold; font-size: 1.1rem; color: #ffd700; text-decoration: none; }
+
+        .nav-links { display: flex; align-items: center; gap: 16px; }
+
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #ffd700; }
+        .nav-links a.active { color: #ffd700; font-weight: bold; }
+
+        #theme-btn {
+            padding: 6px 14px; font-size: 0.9rem;
+            background: var(--toggle-bg); color: var(--text);
+            border: none; border-radius: 30px; cursor: pointer; transition: background 0.3s;
+        }
+
+        #theme-btn:hover { background: var(--toggle-hover); }
+
+        main {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px 24px 60px;
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 8px; color: #ffd700; }
+
+        .last-updated { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem; }
+
+        .policy-section {
+            background: var(--group-bg);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            transition: background 0.3s;
+        }
+
+        .policy-section h2 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .policy-section p { margin-bottom: 10px; }
+        .policy-section ul { margin: 8px 0 12px 20px; }
+        .policy-section li { margin-bottom: 4px; }
+
+        footer {
+            margin-top: 4rem; padding: 24px; border-top: 1px solid var(--border-color);
+            text-align: center; font-size: 0.8rem; color: var(--text-secondary); width: 100%;
+        }
+
+        footer a { color: #ffd700; text-decoration: none; }
+        footer .footer-links { margin-bottom: 8px; display: flex; justify-content: center; gap: 20px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand">Product Builder</a>
+        <div class="nav-links">
+            <a href="index.html">로또 추천기</a>
+            <a href="animal-test.html">동물상 테스트</a>
+            <a href="privacy.html" class="active">개인정보처리방침</a>
+            <button id="theme-btn">☀️ 라이트</button>
+        </div>
+    </nav>
+
+    <main>
+        <h1>개인정보처리방침</h1>
+        <p class="last-updated">최종 수정일: 2025년 3월 3일</p>
+
+        <div class="policy-section">
+            <h2>1. 개인정보의 수집 항목 및 수집 방법</h2>
+            <p>Product Builder(이하 "사이트")는 서비스 제공을 위해 최소한의 개인정보를 수집합니다.</p>
+            <ul>
+                <li><strong>제휴 문의 시:</strong> 이름(또는 회사명), 이메일 주소, 문의 내용</li>
+                <li><strong>자동 수집 정보:</strong> 방문 기록, 접속 IP, 브라우저 유형 (Google Analytics, Google AdSense를 통해 자동 수집)</li>
+            </ul>
+            <p>동물상 테스트에서 사용되는 카메라 영상 및 업로드된 사진은 사용자의 브라우저 내에서만 처리되며, 서버로 전송되거나 저장되지 않습니다.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>2. 개인정보의 수집 및 이용 목적</h2>
+            <ul>
+                <li>제휴 문의에 대한 답변 및 소통</li>
+                <li>사이트 이용 통계 분석 및 서비스 개선</li>
+                <li>맞춤형 광고 제공 (Google AdSense)</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>3. 개인정보의 보유 및 파기</h2>
+            <p>제휴 문의를 통해 수집된 개인정보는 문의 처리 완료 후 <strong>6개월 이내</strong>에 파기합니다. 법령에 의해 보존이 필요한 경우 해당 기간 동안 보관 후 파기합니다.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>4. 쿠키(Cookie) 및 광고</h2>
+            <p>본 사이트는 Google AdSense를 사용하여 광고를 표시합니다. Google은 사용자의 관심사에 기반한 광고를 제공하기 위해 쿠키를 사용할 수 있습니다.</p>
+            <ul>
+                <li>Google의 쿠키 사용에 대한 자세한 내용은 <a href="https://policies.google.com/technologies/ads" style="color:#ffd700;" target="_blank" rel="noopener">Google 광고 개인정보 보호</a> 페이지를 참조하세요.</li>
+                <li>사용자는 <a href="https://www.google.com/settings/ads" style="color:#ffd700;" target="_blank" rel="noopener">Google 광고 설정</a>에서 맞춤 광고를 비활성화할 수 있습니다.</li>
+                <li>브라우저 설정에서 쿠키를 차단하거나 삭제할 수 있습니다.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>5. 제3자 제공</h2>
+            <p>수집된 개인정보는 원칙적으로 제3자에게 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.</p>
+            <ul>
+                <li>이용자가 사전에 동의한 경우</li>
+                <li>법령의 규정에 의하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>6. 로컬 저장소(localStorage) 사용</h2>
+            <p>본 사이트는 다음 데이터를 브라우저의 로컬 저장소에 보관합니다.</p>
+            <ul>
+                <li>로또 번호 추천 기록 (최근 20회)</li>
+                <li>다크/라이트 모드 설정</li>
+            </ul>
+            <p>이 데이터는 사용자의 브라우저에만 저장되며, 서버로 전송되지 않습니다. 브라우저의 사이트 데이터 삭제를 통해 언제든 제거할 수 있습니다.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>7. 이용자의 권리</h2>
+            <p>이용자는 언제든지 자신의 개인정보에 대해 열람, 수정, 삭제를 요청할 수 있습니다. 개인정보와 관련된 문의는 사이트 내 제휴 문의 폼을 통해 연락해주세요.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>8. 개인정보처리방침의 변경</h2>
+            <p>본 개인정보처리방침은 법률이나 서비스의 변경사항을 반영하기 위해 수정될 수 있습니다. 변경 시 본 페이지를 통해 공지하며, 변경된 방침은 게시한 날로부터 효력이 발생합니다.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">로또 추천기</a>
+            <a href="animal-test.html">동물상 테스트</a>
+            <a href="privacy.html">개인정보처리방침</a>
+        </div>
+        <p>&copy; 2025 Product Builder.</p>
+    </footer>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const savedTheme = localStorage.getItem('lottoTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeBtn(savedTheme);
+        themeBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('lottoTheme', next);
+            updateThemeBtn(next);
+        });
+        function updateThemeBtn(theme) {
+            themeBtn.textContent = theme === 'dark' ? '☀️ 라이트' : '🌙 다크';
+        }
+    </script>
+</body>
+</html>
