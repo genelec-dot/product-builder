@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +11,62 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            --text: #fff;
+            --row-bg: rgba(255, 255, 255, 0.08);
+            --row-bg-history: rgba(255, 255, 255, 0.05);
+            --group-bg: rgba(255, 255, 255, 0.04);
+            --time-color: rgba(255, 255, 255, 0.5);
+            --toggle-bg: rgba(255, 255, 255, 0.12);
+            --toggle-hover: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="light"] {
+            --bg: linear-gradient(135deg, #e8eaf6, #f5f5f5, #e3f2fd);
+            --text: #222;
+            --row-bg: rgba(0, 0, 0, 0.06);
+            --row-bg-history: rgba(0, 0, 0, 0.04);
+            --group-bg: rgba(0, 0, 0, 0.03);
+            --time-color: rgba(0, 0, 0, 0.45);
+            --toggle-bg: rgba(0, 0, 0, 0.08);
+            --toggle-hover: rgba(0, 0, 0, 0.15);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background: var(--bg);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
-            color: #fff;
+            color: var(--text);
+            transition: background 0.4s, color 0.3s;
+        }
+
+        /* 테마 토글 버튼 */
+        .top-bar {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        #theme-btn {
+            padding: 8px 18px;
+            font-size: 1rem;
+            background: var(--toggle-bg);
+            color: var(--text);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #theme-btn:hover {
+            background: var(--toggle-hover);
         }
 
         h1 {
@@ -63,11 +110,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--row-bg);
             border-radius: 16px;
             padding: 14px 18px;
             animation: fadeIn 0.4s ease;
             flex-wrap: wrap;
+            transition: background 0.3s;
         }
 
         .row-label {
@@ -130,20 +178,22 @@
 
         .history-group {
             margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.04);
+            background: var(--group-bg);
             border-radius: 16px;
             padding: 16px;
             animation: fadeIn 0.4s ease;
+            transition: background 0.3s;
         }
 
         .history-time {
             font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--time-color);
             margin-bottom: 10px;
+            transition: color 0.3s;
         }
 
         .history-group .lotto-row {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--row-bg-history);
             padding: 10px 14px;
             animation: none;
         }
@@ -161,6 +211,9 @@
     </style>
 </head>
 <body>
+    <div class="top-bar">
+        <button id="theme-btn">☀️ 라이트 모드</button>
+    </div>
     <h1>🎱 로또 번호 추천기</h1>
     <button id="generate-btn">번호 생성하기</button>
     <div id="results"></div>
@@ -175,6 +228,24 @@
 
     <script>
         const history = JSON.parse(localStorage.getItem('lottoHistory') || '[]');
+
+        // 테마 관리
+        const themeBtn = document.getElementById('theme-btn');
+        const savedTheme = localStorage.getItem('lottoTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeBtn(savedTheme);
+
+        themeBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('lottoTheme', next);
+            updateThemeBtn(next);
+        });
+
+        function updateThemeBtn(theme) {
+            themeBtn.textContent = theme === 'dark' ? '☀️ 라이트 모드' : '🌙 다크 모드';
+        }
 
         function getRandomLottoNumbers() {
             const numbers = [];
