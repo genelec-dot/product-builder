@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-3952016271063600">
     <title>로또 번호 추천기</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3952016271063600"
+         crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -319,6 +322,17 @@
             transition: background 0.3s;
         }
 
+        .ad-slot {
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 700px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -334,12 +348,34 @@
     <button id="generate-btn">번호 생성하기</button>
     <div id="results"></div>
 
+    <!-- 광고 1: 결과 아래 -->
+    <div class="ad-slot">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3952016271063600"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div id="history-section" style="display:none;">
         <h2>
             <span>📋 추천 기록</span>
             <button id="clear-btn">기록 삭제</button>
         </h2>
         <div id="history-list"></div>
+    </div>
+
+    <!-- 광고 2: 제휴 문의 위 -->
+    <div class="ad-slot">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3952016271063600"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <section id="contact-section">
