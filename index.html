@@ -299,6 +299,26 @@
             color: #ff7272;
         }
 
+        /* 댓글 영역 */
+        #comment-section {
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        #comment-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        #disqus_thread {
+            background: var(--group-bg);
+            border-radius: 16px;
+            padding: 24px;
+            transition: background 0.3s;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -337,6 +357,25 @@
             <div id="form-status"></div>
         </form>
     </section>
+
+    <section id="comment-section">
+        <h2>💬 댓글</h2>
+        <div id="disqus_thread"></div>
+    </section>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'https://genelec-dot.github.io/product-builder/';
+            this.page.identifier = 'lotto-generator';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://productbuilder-3ojzs5kkfu.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     <script>
         const history = JSON.parse(localStorage.getItem('lottoHistory') || '[]');
