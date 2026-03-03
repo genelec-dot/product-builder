@@ -91,16 +91,6 @@
             box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .separator {
-            font-size: 1.4rem;
-            color: #ffd700;
-            margin: 0 2px;
-        }
-
-        .bonus .ball {
-            border: 2px dashed #ffd700;
-        }
-
         .ball-1  { background: #fbc400; color: #1a1a2e; }
         .ball-10 { background: #69c8f2; }
         .ball-20 { background: #ff7272; }
@@ -186,15 +176,13 @@
     <script>
         const history = JSON.parse(localStorage.getItem('lottoHistory') || '[]');
 
-        function getRandomLottoSet() {
+        function getRandomLottoNumbers() {
             const numbers = [];
-            while (numbers.length < 7) {
+            while (numbers.length < 6) {
                 const n = Math.floor(Math.random() * 45) + 1;
                 if (!numbers.includes(n)) numbers.push(n);
             }
-            const main = numbers.slice(0, 6).sort((a, b) => a - b);
-            const bonus = numbers[6];
-            return { main, bonus };
+            return numbers.sort((a, b) => a - b);
         }
 
         function getBallClass(num) {
@@ -212,7 +200,7 @@
             return ball;
         }
 
-        function createLottoRow(label, set) {
+        function createLottoRow(label, numbers) {
             const row = document.createElement('div');
             row.className = 'lotto-row';
 
@@ -221,17 +209,7 @@
             labelEl.textContent = label;
             row.appendChild(labelEl);
 
-            set.main.forEach(num => row.appendChild(createBall(num)));
-
-            const sep = document.createElement('span');
-            sep.className = 'separator';
-            sep.textContent = '+';
-            row.appendChild(sep);
-
-            const bonusWrap = document.createElement('span');
-            bonusWrap.className = 'bonus';
-            bonusWrap.appendChild(createBall(set.bonus));
-            row.appendChild(bonusWrap);
+            numbers.forEach(num => row.appendChild(createBall(num)));
 
             return row;
         }
@@ -257,8 +235,8 @@
                 time.textContent = entry.time;
                 group.appendChild(time);
 
-                entry.sets.forEach((set, i) => {
-                    group.appendChild(createLottoRow(String.fromCharCode(65 + i), set));
+                entry.sets.forEach((nums, i) => {
+                    group.appendChild(createLottoRow(String.fromCharCode(65 + i), nums));
                 });
 
                 list.appendChild(group);
@@ -275,10 +253,10 @@
 
             const sets = [];
             for (let i = 0; i < 5; i++) {
-                const set = getRandomLottoSet();
-                sets.push(set);
+                const nums = getRandomLottoNumbers();
+                sets.push(nums);
 
-                const row = createLottoRow(String.fromCharCode(65 + i), set);
+                const row = createLottoRow(String.fromCharCode(65 + i), nums);
                 row.style.animationDelay = `${i * 0.1}s`;
                 results.appendChild(row);
             }
